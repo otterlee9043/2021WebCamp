@@ -7,7 +7,7 @@
 <body>
 
 <p>Sorry, an error occured!</p>
-<jsp:include page="userform.html"></jsp:include>
+<jsp:include page="list.jsp"></jsp:include>
 
 </body>
 </html>

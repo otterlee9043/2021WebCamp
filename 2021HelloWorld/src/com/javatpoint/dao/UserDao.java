@@ -10,7 +10,7 @@ public static Connection getConnection(){
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		con=DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12388546?useSSL=false","sql12388546","H43FlyH9Z1");
-	}catch(Exception e){System.out.println(e);} 
+	}catch(Exception e){System.out.println(e);}
 	return con;
 }
 public static int save(User u){
