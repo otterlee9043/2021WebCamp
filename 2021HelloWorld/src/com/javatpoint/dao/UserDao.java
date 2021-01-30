@@ -9,7 +9,7 @@ public static Connection getConnection(){
 	Connection con=null;
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
-		con=DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12388546?useSSL=false","sql12388546","H43FlyH9Z1");
+		con=DriverManager.getConnection("jdbc:mysql://sql12.freemysqlhosting.net:3306/sql12389420?useSSL=false","sql12389420","VZKtalgVDK");
 	}catch(Exception e){System.out.println(e);}
 	return con;
 }
@@ -17,7 +17,7 @@ public static int save(User u){
 	int status=0;
 	try{
 		Connection con=getConnection();
-		PreparedStatement ps=con.prepareStatement("insert into register(name,password,email,sex,country) values(?,?,?,?,?)");
+		PreparedStatement ps=con.prepareStatement("insert into register0(name,password,email,sex,country) values(?,?,?,?,?)");
 		ps.setString(1,u.getName());
 		ps.setString(2,u.getPassword());
 		ps.setString(3,u.getEmail());
@@ -31,7 +31,7 @@ public static int update(User u){
 	int status=0;
 	try{
 		Connection con=getConnection();
-		PreparedStatement ps=con.prepareStatement("update register set name=?,password=?,email=?,sex=?,country=? where id=?");
+		PreparedStatement ps=con.prepareStatement("update register0 set name=?,password=?,email=?,sex=?,country=? where id=?");
 		ps.setString(1,u.getName());
 		ps.setString(2,u.getPassword());
 		ps.setString(3,u.getEmail());
@@ -46,7 +46,7 @@ public static int delete(User u){
 	int status=0;
 	try{
 		Connection con=getConnection();
-		PreparedStatement ps=con.prepareStatement("delete from register where id=?");
+		PreparedStatement ps=con.prepareStatement("delete from register0 where id=?");
 		ps.setInt(1,u.getId());
 		status=ps.executeUpdate();
 	}catch(Exception e){System.out.println(e);}
@@ -58,7 +58,7 @@ public static List<User> getAllRecords(){
 	
 	try{
 		Connection con=getConnection();
-		PreparedStatement ps=con.prepareStatement("select * from register");
+		PreparedStatement ps=con.prepareStatement("select * from register0");
 		ResultSet rs=ps.executeQuery();
 		while(rs.next()){
 			User u=new User();
@@ -77,7 +77,7 @@ public static User getRecordById(int id){
 	User u=null;
 	try{
 		Connection con=getConnection();
-		PreparedStatement ps=con.prepareStatement("select * from register where id=?");
+		PreparedStatement ps=con.prepareStatement("select * from register0 where id=?");
 		ps.setInt(1,id);
 		ResultSet rs=ps.executeQuery();
 		while(rs.next()){
